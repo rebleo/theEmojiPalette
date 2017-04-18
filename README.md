@@ -1,4 +1,4 @@
 ## the emoji palette
-### organize all yr emojis
-#### color data coming soon 
+### these are all(?) of the emojis and corresponsing [emoji one](http://emojione.com/) images. 
+#### w/ color data coming soon 
 ##### xo r
