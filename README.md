@@ -1,3 +1,4 @@
 ## the Em😶ji Palette
-a translation project hoping to liberate our emojis. Current goals: transcribe, rebuild, share and comment-out my first software project. currently: one.json w/ [emoji one](http://emojione.com/) images. color data coming soon.
+A unicode to pixel translation project. . Current goals: transcribe, rebuild, share and comment-out my first software project. Then build more. Currently: one.json w/ [emoji one](http://emojione.com/) images and corresponding unicode, name and emoji. Color data coming soon.
+
 ##### xo r
