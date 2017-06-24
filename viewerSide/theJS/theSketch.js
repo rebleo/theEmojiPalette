@@ -1,24 +1,39 @@
 //rewriting theEmojiPalette as a single Sketch, a state machine
 let theCanvas, theContxt;
 let theMachine = -1;
+let thePrsnPlcThng = [];
+let theTxtPhase;
 
+function preload(){
+	for (var i = 0; i < 3; i++) {
+			thePrsnPlcThng[i] = loadImage('theData/theCntxt/prsnPlcThng' + i + '.png');
+	}
+}
 function setup(){
 	theMachine = -1;
 	theCanvas = createCanvas(windowWidth,windowHeight);
-	let theTxtPhase = new txtPage()
+}
+
+function theTxt(){
+	theTxtPhase = new txtPage();
 
 }
 
 function draw(){
-	
+
 	// -1 will be the landing page
 	if (theMachine == -1){
+		// greenScreen
 		theContxt = background(0, 160, 0);
+		let thePrsnButton = image(thePrsnPlcThng[0],50,200,50,50);
+		let thePlaceButton = image(thePrsnPlcThng[1],125,200,50,50);
+		let theThingButton = image(thePrsnPlcThng[2],200,200,50,50);
 	}
 	// 0 will be the txt page
-	// Red
 	if (theMachine == 0){
-		theContxt = background(255, 0, 0);
+			// Red
+		theTxt();
+
 	}
 	// 1 will be the pnt page
 	// Green
