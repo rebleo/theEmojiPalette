@@ -1,8 +1,5 @@
 function pxlPage(thisPhase) {
     theContxt = background(255, 255, 0);
-    theInput = createInput('💬');
-    theInput.position(35, 450);
-    theInput.size(100);
     // line the page for fun
     push();
     stroke(255, 192, 200, 100);
