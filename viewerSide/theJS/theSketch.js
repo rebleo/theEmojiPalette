@@ -2,61 +2,80 @@
 let theCanvas, theContxt;
 let theMachine = -1;
 let thePrsnPlcThng = [];
-let theTxtPhase;
+let theTxtPhase, thePntPhase, thePxlPhase;
+let thePrsnButton, thePlaceButton, theThingButton;
+let thePrsnPlcThngCntrls = [];
 
-function preload(){
-	for (var i = 0; i < 3; i++) {
-			thePrsnPlcThng[i] = loadImage('theData/theCntxt/prsnPlcThng' + i + '.png');
-	}
-}
-function setup(){
-	theMachine = -1;
-	theCanvas = createCanvas(windowWidth,windowHeight);
+function preload() {
+    for (var i = 0; i < 3; i++) {
+        thePrsnPlcThng[i] = loadImage('theData/theCntxt/prsnPlcThng' + i + '.png');
+    }
 }
 
-function theTxt(){
-	theTxtPhase = new txtPage();
-
+function setup() {
+    theMachine = -1;
+    theCanvas = createCanvas(windowWidth, windowHeight);
+    for (var i = 0; i < thePrsnPlcThng.length; i++) {
+        let aButton = new theCntrl(thePrsnPlcThng[i], (i * 75) + 50, height - 100);
+        thePrsnPlcThngCntrls.push(aButton)
+        console.log(thePrsnPlcThngCntrls)
+    }
 }
 
-function draw(){
+function theTxt() {
+    theTxtPhase = new txtPage();
+}
 
-	// -1 will be the landing page
-	if (theMachine == -1){
-		// greenScreen
-		theContxt = background(0, 160, 0);
-		let thePrsnButton = image(thePrsnPlcThng[0],50,200,50,50);
-		let thePlaceButton = image(thePrsnPlcThng[1],125,200,50,50);
-		let theThingButton = image(thePrsnPlcThng[2],200,200,50,50);
-	}
-	// 0 will be the txt page
-	if (theMachine == 0){
-			// Red
-		theTxt();
+function thePnt() {
+    thePntPhase = new pntPage();
+}
 
-	}
-	// 1 will be the pnt page
-	// Green
-	if (theMachine == 1){
-		theContxt = background(0, 255, 0);
-	}
-	// 2 will be the pxl page
-	// Blue
-	if (theMachine == 2){
-		theContxt = background(0, 0, 255);
-	}
-	//R
-	if (mouseIsPressed && mouseY > windowHeight/2){
-		theMachine = 0;
-	}
-	//G
-	if (mouseIsPressed && mouseY < windowHeight/2){
-		theMachine = 1;
-	}
-	//B
-	if (mouseIsPressed && mouseX < windowWidth/2 && mouseY < windowHeight/2){
-		theMachine = 2;
-	}
+function thePxl() {
+    thePxlPhase = new pxlPage();
+}
 
+function theCntrl(photo, x, y) {
+    this.photo = photo;
+    this.x = x;
+    this.y = y;
+    this.display = function() {
+        image(this.photo, this.x, this.y, 50, 50)
+    }
+}
 
+function draw() {
+    // -1 will be the landing page
+    if (theMachine == -1) {
+        // greenScreen
+        theContxt = background(0, 160, 0);
+    }
+    // 0 will be the txt page
+    if (theMachine == 0) {
+        // Red
+        theTxt();
+    }
+    // 1 will be the pnt page
+    if (theMachine == 1) {
+        thePnt();
+    }
+    // 2 will be the pxl page
+    // Yellow
+    if (theMachine == 2) {
+        thePxl();
+    }
+    //R
+    if (mouseIsPressed && mouseY > windowHeight / 2) {
+        theMachine = 0;
+    }
+    //G
+    if (mouseIsPressed && mouseY < windowHeight / 2) {
+        theMachine = 1;
+    }
+    //B
+    if (mouseIsPressed && mouseX < windowWidth / 2 && mouseY < windowHeight / 2) {
+        theMachine = 2;
+    }
+    for (let i = 0; i < thePrsnPlcThngCntrls.length; i++) {
+        thePrsnPlcThngCntrls[i].display();
+    }
 }

@@ -1,31 +1,27 @@
 var aPlatformPalette = [];
 var theInput, theSubmission, theSearch;
-
 // // --------- { theTxt Page - Txt == Pixel} --------//
 function txtPage(thisPhase) {
     var theCanvas;
     var theClick;
-
-		theContxt = background(255);
-		theInput = createInput('💬');
-	  theInput.position(35, 450);
-	  theInput.size(100);
-
-		// line the page for fun
-		push();
-		stroke(255, 192, 200, 100);
-	  strokeWeight(3);
-	  let theMargin = line(50, 0, 50, windowHeight);
-	  pop();
-	  push();
-	  stroke(0, 0, 200, 100);
-	  strokeWeight(2);
+    theContxt = background(255, 0, 0);
+    theInput = createInput('💬');
+    theInput.position(35, 450);
+    theInput.size(100);
+    // line the page for fun
+    push();
+    stroke(255, 192, 200, 100);
+    strokeWeight(3);
+    let theMargin = line(50, 0, 50, windowHeight);
+    pop();
+    push();
+    stroke(0, 0, 200, 100);
+    strokeWeight(2);
     for (var i = 0; i < windowHeight; i++) {
-     	line(0, 20 * i, windowWidth, 20 * i);
+        line(0, 20 * i, windowWidth, 20 * i);
     }
     pop();
-
-	}
+}
 //     thisPage.setup = function() {
 //         theCanvas = thisPage.createCanvas(350, 500);
 //         thisPage.background(255);
