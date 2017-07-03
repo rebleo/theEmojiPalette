@@ -2,6 +2,7 @@ var aPlatformPalette = [];
 var theInput, theSubmission, theSearch;
 // // --------- { theTxt Page - Txt == Pixel} --------//
 function txtPage(thisPhase) {
+    theMachine = 0;
     var theCanvas;
     var theClick;
     theContxt = background(255, 0, 0);

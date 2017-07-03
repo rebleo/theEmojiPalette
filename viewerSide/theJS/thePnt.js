@@ -1,5 +1,6 @@
 function pntPage(thisPhase) {
-    theContxt = background(0, 0, 255);
+    theMachine = 1;
+    theContxt = background(0, 255, 0);
     // line the page for fun
     push();
     stroke(255, 192, 200, 100);

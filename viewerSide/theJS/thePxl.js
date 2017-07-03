@@ -1,5 +1,6 @@
 function pxlPage(thisPhase) {
-    theContxt = background(255, 255, 0);
+    theMachine = 2;
+    theContxt = background(0, 0, 255);
     // line the page for fun
     push();
     stroke(255, 192, 200, 100);
