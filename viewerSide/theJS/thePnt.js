@@ -1,63 +1,47 @@
+let paintBox = [];
+let thePigment = [];
+
 function pntPage(thisPhase) {
     theMachine = 1;
     theContxt = background(0, 255, 0);
-    // line the page for fun
-    push();
-    stroke(255, 192, 200, 100);
-    strokeWeight(3);
-    let theMargin = line(50, 0, 50, windowHeight);
-    pop();
-    push();
-    stroke(0, 0, 200, 100);
-    strokeWeight(2);
-    for (var i = 0; i < windowHeight; i++) {
-        line(0, 20 * i, windowWidth, 20 * i);
-    }
-    pop();
+    var red = color(255, 0, 0, 220);
+    var green = color(0, 160, 0, 220);
+    var blue = color(0, 0, 255, 220);
+    var yellow = color(255, 200, 0, 220);
+    var orange = color(255, 165, 0, 220);
+    var purple = color(128, 0, 128, 220);
+    //var colors = {"red": 0, "orage": 1, "yellow": 2};
+    let colors = [{
+        color: red,
+        id: 'red'
+    }, {
+        color: orange,
+        id: 'orange'
+    }, {
+        color: yellow,
+        id: 'yellow'
+    }, {
+        color: green,
+        id: 'green'
+    }, {
+        color: blue,
+        id: 'blue'
+    }, {
+        color: purple,
+        id: 'purple'
+    }];
 }
-// var paintBox = [];
-// var thePigment = [];
 //
 // function pntPage(thisPage) {
-//     var theCarrier;
-//     var colorDecision;
-//     var colorDecide = false;
-//     var platformDecision;
-//     var colors;
-//     var theTest;
-//     var aPlate = [];
-//     thisPage.setup = function() {
-//         thisPage.createCanvas(350, 500);
-//         // thisPage.background(0, 150, 0);
-//         thisPage.pixelDensity(1);
-//         thisPage.colorMode(RGB);
-//         var red = thisPage.color(255, 0, 0, 220);
-//         var green = thisPage.color(0, 160, 0, 220);
-//         var blue = thisPage.color(0, 0, 255, 220);
-//         var yellow = thisPage.color(255, 200, 0, 220);
-//         var orange = thisPage.color(255, 165, 0, 220);
-//         var purple = thisPage.color(128, 0, 128, 220);
-//         //var colors = {"red": 0, "orage": 1, "yellow": 2};
-//         colors = [{
-//             color: red,
-//             id: 'red'
-//         }, {
-//             color: orange,
-//             id: 'orange'
-//         }, {
-//             color: yellow,
-//             id: 'yellow'
-//         }, {
-//             color: green,
-//             id: 'green'
-//         }, {
-//             color: blue,
-//             id: 'blue'
-//         }, {
-//             color: purple,
-//             id: 'purple'
-//         }];
-//     }
+// var theCarrier;
+// var colorDecision;
+// var colorDecide = false;
+// var platformDecision;
+// var colors;
+// var theTest;
+// var aPlate = [];
+// thisPage.setup = function() {
+// }
 //     thisPage.draw = function() {
 //         // for (var i = 0; i < thePeople.length; i++) {
 //         //     thisPage.image(thePeople[i], (i * 30) + 225, 560, 25, 25);

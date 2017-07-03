@@ -9,6 +9,11 @@ function txtPage(thisPhase) {
     theInput = createInput('💬');
     theInput.position(35, 450);
     theInput.size(100);
+    theInput.addClass('theTxt')
+    theSubmission = createButton('😶');
+    theSubmission.position(theInput.x + 5 + theInput.width, theInput.y - 3);
+    // theSubmission.mousePressed(submitTxt);
+    theSubmission.addClass('theTxt');
     // line the page for fun
     push();
     stroke(255, 192, 200, 100);
@@ -24,16 +29,7 @@ function txtPage(thisPhase) {
     pop();
 }
 //     thisPage.setup = function() {
-//         theCanvas = thisPage.createCanvas(350, 500);
-//         thisPage.background(255);
-//         theInput = thisPage.createInput('💬');
-//         theInput.position(35, 450);
-//         theInput.size(100);
-//         theInput.addClass('txtPage')
-//         theSubmission = thisPage.createButton('😶');
-//         theSubmission.position(theInput.x + 5 + theInput.width, theInput.y -3);
-//         theSubmission.mousePressed(submitTxt);
-//         theSubmission.addClass('txtPage');
+//
 //         theClick = thisPage.createButton('📷 | 💾 click');
 //         theClick.position(400, theInput.y);
 //         theClick.mousePressed(thisPage.click);

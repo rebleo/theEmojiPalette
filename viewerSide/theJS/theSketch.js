@@ -1,3 +1,4 @@
+// rebecca (marks) leopold, 2017
 //rewriting theEmojiPalette as a single Sketch, a state machine
 let theCanvas, theContxt;
 let theMachine = -1;

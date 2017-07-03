@@ -1,3 +1,4 @@
+// --------- { thePixel - Color == Emoji  } --------//
 function pxlPage(thisPhase) {
     theMachine = 2;
     theContxt = background(0, 0, 255);
@@ -15,9 +16,7 @@ function pxlPage(thisPhase) {
     }
     pop();
 }
-// translation enginee
 // var platPalette = [];
-// // --------- { thePixel - Color == Emoji  } --------//
 // function pxlPage(thisPage) {
 //     var theCanvas;
 //     var newImage;
