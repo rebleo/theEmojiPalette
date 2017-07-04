@@ -37,6 +37,9 @@ function pntPage(thisPhase) {
     for (var i = 0; i < paintBox.length; i++) {
         paintBox[i].display();
     }
+    for (let i = 0; i < theBigData.length; i++) {
+        image(theBigData[i], (30 * i) + width / 2, height - 150, 25, 25)
+    }
 }
 
 function selectColor(color, x, y, id) {

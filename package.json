@@ -1,22 +1,24 @@
 {
-  "name": "theemojipalette",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rebleo/theEmojiPalette.git"
-  },
-  "author": "rebecca (marks) leopold",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rebleo/theEmojiPalette/issues"
-  },
-  "homepage": "https://github.com/rebleo/theEmojiPalette#readme",
-  "dependencies": {
-    "express": "^4.15.3"
-  }
+    "name": "theemojipalette",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rebleo/theEmojiPalette.git"
+    },
+    "author": "rebecca (marks) leopold",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rebleo/theEmojiPalette/issues"
+    },
+    "homepage": "https://github.com/rebleo/theEmojiPalette#readme",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "cors": "^2.8.3",
+        "express": "^4.15.3"
+    }
 }

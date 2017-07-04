@@ -5,10 +5,14 @@ let theMachine = -1;
 let thePrsnPlcThng = [];
 let thePrsnButton, thePlaceButton, theThingButton;
 let thePrsnPlcThngCntrls = [];
+let theBigData = [];
 
 function preload() {
     for (var i = 0; i < 3; i++) {
         thePrsnPlcThng[i] = loadImage('theData/theCntxt/prsnPlcThng' + i + '.png');
+    }
+    for (var i = 0; i < 5; i++) {
+        theBigData[i] = loadImage('theData/thePltfrm/bigData' + i + '.png');
     }
 }
 
