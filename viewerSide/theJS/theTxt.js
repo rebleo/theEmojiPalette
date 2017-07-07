@@ -1,3 +1,4 @@
+console.log("txt!")
 var aPlatformPalette = [];
 var theInput, theSubmission, theSearch;
 // // --------- { theTxt Page - Txt == Pixel} --------//
@@ -7,13 +8,13 @@ function txtPage(thisPhase) {
     var theClick;
     theContxt = background(255, 0, 0);
     theInput = createInput('💬');
-    theInput.position(35, 450);
+    theInput.position(75, 400);
     theInput.size(100);
-    theInput.addClass('theTxt')
+    theInput.addClass('txtStuff')
     theSubmission = createButton('😶');
     theSubmission.position(theInput.x + 5 + theInput.width, theInput.y - 3);
     // theSubmission.mousePressed(submitTxt);
-    theSubmission.addClass('theTxt');
+    theSubmission.addClass('txtStuff');
     // line the page for fun
     push();
     stroke(255, 192, 200, 100);
