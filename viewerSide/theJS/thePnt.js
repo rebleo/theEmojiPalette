@@ -54,15 +54,20 @@ function makeColor(color, x, y, id) {
         noStroke();
         rect(this.x, this.y, 25, 30);
     }
-    this.colorSelect = function mouseReleased() {
+    this.colorSelect = function() {
         if (mouseX > this.x && mouseX < this.x + 25 && mouseY > this.y && mouseY < this.y + 30) {
-            if (mouseIsPressed) {
+            if (mouseIsPressed && !mouseDown) {
+                mouseDown = true;
                 let theColor = this.id;
-                loadJSON('/emoji/' + theColor, gotPix)
-                // pick it up again here. data is returning as undefined!
-                function gotPix(EmotionsAreData) {
-                    console.log(EmotionsAreData.length)
+                loadJSON("/emoji/" + theColor, callBack);
+
+                function callBack(data) {
+                    console.log(data)
                 }
+                // for (var i = 0; i < variable.length; i++) {
+                //     console.log(variable[0])
+                // }
+                // pick it up again here. data is returning as undefined!
             }
         }
     }

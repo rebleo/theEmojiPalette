@@ -7,6 +7,7 @@ let thePrsnButton, thePlaceButton, theThingButton;
 let thePrsnPlcThngCntrls = [];
 let theBigData = [];
 let txtElements = [];
+let mouseDown = false;
 
 function preload() {
     for (var i = 0; i < 3; i++) {

@@ -1,6 +1,6 @@
 ## the Em😶ji Palette
 A unicode to pixel translation project. Currently: one.json w/ [emoji one](http://emojione.com/) images and corresponding unicode, name and emoji.
-
+![mountain](/viewerSide/theData/mt.jpg)
 ### to Do ‼️
 * Public Palette:
 ...get the one.json organized by color and online!!

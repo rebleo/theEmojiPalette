@@ -30,23 +30,26 @@ function makeEmoji() {
     //
     //
     // --- --- --- { get PNT data } --- --- ---
-    theApp.get('/emoji/:color', theMedium);
+    theApp.get('/emoji/:color/', theMedium);
 
     function theMedium(request, response) {
         var theMessage = [];
+        var theImages = [];
         var theColor = request.params.color;
+        console.log(theColor)
         for (var i = 0; i < theRGB.colors.length; i++) {
             var theColorChoices = theRGB.colors[i];
             // theSelectedColor is the whole color object with emoji, images & meta data of the selected color
             var theSelectedColor = theColorChoices[theColor];
+            var theString = [];
             console.log(theSelectedColor)
             for (var j = 0; j < theSelectedColor.length; j++) {
-                var theString = theSelectedColor[j].images;
-                theMessage.push(theString)
+                var theString = theSelectedColor[j].images
+                console.log(theString.length)
             }
         }
-        // pick it up again here. the client isn't not recieving theMessage.
-        response.send(theMessage);
-        theMessage.splice(0, theMessage.length)
+        // console.log(theMessage)
+        // response.send(theMessage);
+        // theMessage.splice(0, theMessage.length)
     }
 }
