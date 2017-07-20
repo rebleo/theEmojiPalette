@@ -2,8 +2,7 @@ let paintBox = [];
 console.log("paint!")
 
 function pntPage(thisPhase) {
-    theMachine = 1;
-    theContxt = background(255);
+    background(255);
     //
     //
     // --- --- --- { make the color palette } --- --- ---
@@ -59,14 +58,18 @@ function makeColor(color, x, y, id) {
             if (mouseIsPressed && !mouseDown) {
                 mouseDown = true;
                 let theColor = this.id;
-                loadJSON("/emoji/" + theColor, callBack);
-
-                function callBack(data) {
-                    console.log(data)
+                loadJSON("/emoji/" + theColor, gotData, gotError);
+                console.log(theColor)
+                //literally why isn't this working?
+                function gotData(emojis) {
+                    // console.log(arguments) -- dispaly anything being passed in function
+                    for (let i = 0; i < emojis.length; i++) {
+                        let aButton = new theEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50);
+                        someEmojis.push(aButton)
+                    }
                 }
-                // for (var i = 0; i < variable.length; i++) {
-                //     console.log(variable[0])
-                // }
+                // console.log(someEmojis);
+                function gotError(data) {}
                 // pick it up again here. data is returning as undefined!
             }
         }

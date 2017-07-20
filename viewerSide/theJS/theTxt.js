@@ -1,25 +1,23 @@
 console.log("txt!")
 var aPlatformPalette = [];
-var theInput, theSubmission, theSearch;
 // // --------- { theTxt Page - Txt == Pixel} --------//
 function txtPage(thisPhase) {
-    theMachine = 0;
-    var theCanvas;
-    var theClick;
-    theContxt = background(255, 0, 0);
-    theInput = createInput('💬');
-    theInput.position(75, 400);
-    theInput.size(100);
-    theInput.addClass('txtStuff')
-    theSubmission = createButton('😶');
-    theSubmission.position(theInput.x + 5 + theInput.width, theInput.y - 3);
-    // theSubmission.mousePressed(submitTxt);
-    theSubmission.addClass('txtStuff');
+    background(255, 0, 0);
+    let theSearch;
+    theSearch = createSelect('search 💬');
+    theSearch.position(50, 400);
+    theSearch.option('😶 | persons');
+    theSearch.option('🌲 | place');
+    theSearch.option('💬 | thing');
+    theSearch.addClass("txtStuff")
+    //
+    //
     // line the page for fun
+    // immediate mode, means just like on draw runs. not sving any info in glbl variables. local stuff.
     push();
     stroke(255, 192, 200, 100);
     strokeWeight(3);
-    let theMargin = line(50, 0, 50, windowHeight);
+    line(50, 0, 50, windowHeight);
     pop();
     push();
     stroke(0, 0, 200, 100);
@@ -31,13 +29,6 @@ function txtPage(thisPhase) {
 }
 //     thisPage.setup = function() {
 //
-//         theClick = thisPage.createButton('📷 | 💾 click');
-//         theClick.position(400, theInput.y);
-//         theClick.mousePressed(thisPage.click);
-//         theClick.addClass('txtPage');
-//         theSearch = thisPage.createSelect('search 💬');
-//         theSearch.position(400, 500);
-//         theSearch.option('👩 | persons');
 //         var theFaces = theSearch.option('😶 | emojis');
 //         // var theForests = theSearch.option('🌲 | nature');
 //         // var theObjects = theSearch.option('🤖 | things');
@@ -156,5 +147,7 @@ function txtPage(thisPhase) {
 //     function error() {
 //         console.log("nope!")
 //     }
+//
+// }
 //
 // }

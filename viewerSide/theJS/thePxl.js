@@ -1,13 +1,12 @@
   console.log("pxl!")
   // --------- { thePixel - Color == Emoji  } --------//
   function pxlPage(thisPhase) {
-      theMachine = 2;
-      theContxt = background(0, 0, 255);
+      background(0, 0, 255);
       // line the page for fun
       push();
       stroke(255, 192, 200, 100);
       strokeWeight(3);
-      let theMargin = line(50, 0, 50, windowHeight);
+      line(50, 0, 50, windowHeight); // the margin
       pop();
       push();
       stroke(0, 0, 200, 100);
