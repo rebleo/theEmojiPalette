@@ -5,20 +5,28 @@ Can we have more creative control over our data? Can we have more control over o
 
 * Public Palette:
 
-...organize the one.json color..
-...process color data? or hand code by eye?..
-...make example sketch using data set..
+
+⋅⋅⋅organize the one.json color⋅⋅
+
+⋅⋅⋅process color data? or hand code by eye?⋅⋅
+
+⋅⋅⋅make example sketch using data set⋅⋅
 
 
 * EP Software:
 
-...just dump a usable version online..
-...fix txt canvas so you can clear previous image search..
-...the search engine: add more query terms &/or make it less rigid..
+
+⋅⋅⋅just dump a usable version online⋅⋅
+
+⋅⋅⋅fix txt canvas so you can clear previous image search⋅⋅
+
+⋅⋅⋅the search engine: add more query terms &/or make it less rigid⋅⋅
 
 * the Emoji Primitives:
 
-...sketch out system diagram..
-...make assets
+
+⋅⋅⋅sketch out system diagram⋅⋅
+
+⋅⋅⋅make assets⋅⋅
 
 ##### xo r
