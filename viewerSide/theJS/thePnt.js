@@ -2,7 +2,6 @@ let paintBox = [];
 console.log("paint!")
 
 function pntPage(thisPhase) {
-    background(255);
     //
     //
     // --- --- --- { make the color palette } --- --- ---
@@ -34,6 +33,7 @@ function pntPage(thisPhase) {
     for (let i = 0; i < colors.length; i++) {
         let thePigment = new makeColor(colors[i].c, (i * 30) + 10, height - 150);
         thePigment.id = colors[i].id;
+        thePigment.state = colors[i].state;
         paintBox.push(thePigment);
     }
     //
@@ -44,7 +44,7 @@ function pntPage(thisPhase) {
     }
 }
 
-function makeColor(color, x, y, id) {
+function makeColor(color, x, y, id, state) {
     this.color = color;
     this.x = x;
     this.y = y;
@@ -58,19 +58,79 @@ function makeColor(color, x, y, id) {
             if (mouseIsPressed && !mouseDown) {
                 mouseDown = true;
                 let theColor = this.id;
+                let theState = this.state;
                 loadJSON("/emoji/" + theColor, gotData, gotError);
                 console.log(theColor)
-                //literally why isn't this working?
+
                 function gotData(emojis) {
                     // console.log(arguments) -- dispaly anything being passed in function
                     for (let i = 0; i < emojis.length; i++) {
-                        let aButton = new theEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50);
-                        someEmojis.push(aButton)
+                        if (theState == theState) {
+                            makeImage(emojis[i])
+                            // thisEmojiPalette.push(new thisEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50));
+                        }
                     }
                 }
-                // console.log(someEmojis);
-                function gotError(data) {}
-                // pick it up again here. data is returning as undefined!
+
+                function gotError(data) {
+                    console.log("nope!")
+                }
+            }
+        }
+    }
+}
+// --------- { EMOJI RANDO-SELECTION SECTION } --------//
+// start again. this is wonky.
+function makeImage(data) {
+    let theEmotion = loadImage(data);
+    // this.x = x;
+    // this.y = y;
+    // this.w = w;
+    // this.h = h;
+    let theEmotions = [];
+    theEmotions.push(theEmotion)
+    // push the image data into the array to be drawn to the canvas
+    for (var i = 0; i < theEmotions.length; i++) {
+        thisEmojiPalette.push(new thisEmoji(theEmotions[i], 50 + (i * 50), height - 250, 50, 50));
+    }
+}
+
+function thisEmoji(data, x, y, w, h, id) {
+    this.photo = data;
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.select = false;
+    this.paint = false;
+    let theBrush;
+    this.displayEmoji = function() {
+        image(this.photo, this.x, this.y, this.w, this.h);
+        if (this.select == true && mouseIsPressed) {
+            mouseDown = true;
+            //this makes paint true
+            theBrush = this.photo;
+            this.paint = true;
+        } else {
+            this.select = false;
+            this.paint = false;
+        }
+    }
+    this.paintEmoji = function() {
+        if (mouseX > -25 && mouseX < width + 25 && mouseY > -25 && mouseY <= height + 25) {
+            if (theBrush && mouseIsPressed) {
+                mouseDown = true;
+                image(theBrush, pmouseX, pmouseY, this.w, this.h);
+            }
+        }
+    }
+    this.selectEmoji = function() {
+        if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
+            if (mouseIsPressed) {
+                mouseDown = true;
+                this.select = true;
+            } else {
+                this.select = false;
             }
         }
     }

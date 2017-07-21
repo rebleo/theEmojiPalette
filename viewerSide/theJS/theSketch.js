@@ -8,7 +8,7 @@ let thePrsnPlcThngCntrls = [];
 let theBigData = [];
 let txtElements = [];
 let mouseDown = false;
-let someEmojis = [];
+let thisEmojiPalette = [];
 
 function preload() {
     for (var i = 0; i < 3; i++) {
@@ -60,46 +60,38 @@ function theCntrl(photo, x, y, w, h, id) {
         if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
             if (mouseIsPressed) {
                 theMachine = this.id;
-                console.log(theMachine)
+                // console.log(theMachine)
             }
         }
     }
 }
-
-function theEmoji(data, x, y, w, h, id) {
-    this.photo = loadImage(data);
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.display = function() {
-        image(this.photo, this.x, this.y, this.w, this.h)
-    }
-    this.selectEmoji = function mouseReleased() {
-        if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
-            if (mouseIsPressed) {
-                console.log("click!")
-            }
-        }
-    }
-}
+let thisColor;
 
 function draw() {
     if (theMachine == "txt") {
         txtPage();
     }
+    /////
+    ////
+    ////
+    ////
     if (theMachine == "pnt") {
         pntPage();
         //  display canvas elemnts from pnt.js
         for (var i = 0; i < paintBox.length; i++) {
             paintBox[i].display();
-            paintBox[i].colorSelect();
+            // paintBox[i].colorSelect();
+            var aColor = paintBox[i].colorSelect();
         }
         //hide the dom elements from the other pages
         for (let i = 0; i < txtElements.length; i++) {
             txtElements[i].hidden = true;
         }
     }
+    /////
+    ////
+    ////
+    ////
     if (theMachine == "pxl") {
         // this is drawing to canvas
         pxlPage();
@@ -108,10 +100,15 @@ function draw() {
             txtElements[i].hidden = true;
         }
     }
-    for (let i = 0; i < someEmojis.length; i++) {
-        someEmojis[i].display();
-        someEmojis[i].selectEmoji();
+    /////
+    ////
+    for (let i = 0; i < thisEmojiPalette.length; i++) {
+        thisEmojiPalette[i].selectEmoji();
+        thisEmojiPalette[i].displayEmoji();
+        thisEmojiPalette[i].paintEmoji();
     }
+    ////
+    ////
     for (let i = 0; i < thePrsnPlcThngCntrls.length; i++) {
         thePrsnPlcThngCntrls[i].display();
         thePrsnPlcThngCntrls[i].selectPhase();

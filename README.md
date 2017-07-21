@@ -1,21 +1,24 @@
 ## the Em😶ji Palette
-A unicode to pixel translation project. Currently: one.json w/ [emoji one](http://emojione.com/) images and corresponding unicode, name and emoji.
+Can we have more creative control over our data? Can we have more control over our creative data? This is a unicode to pixel translation project. Currently: one.json w/ [emoji one](http://emojione.com/) images and corresponding unicode, name and emoji.
 ![mountain](/viewerSide/theData/mt.jpg)
 ### to Do ‼️
+
 * Public Palette:
-...get the one.json organized by color and online!!
-...pixel data (dr's processing code?)
-...add more search terms
+
+...organize the one.json color..
+...process color data? or hand code by eye?..
+...make example sketch using data set..
+
 
 * EP Software:
-...just dump the wonky code online already!
-...rework code from pages to phases
-...fix txt canvas so you can clear previous image search
-...the search engine: add more query terms
-...make more to do lists !
+
+...just dump a usable version online..
+...fix txt canvas so you can clear previous image search..
+...the search engine: add more query terms &/or make it less rigid..
 
 * the Emoji Primitives:
-...sketch out system diagram for how this will work
-...build proof of concept
+
+...sketch out system diagram..
+...make assets
 
 ##### xo r
