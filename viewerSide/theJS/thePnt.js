@@ -1,5 +1,4 @@
 let paintBox = [];
-
 console.log("paint!")
 
 function pntPage(thisPhase) {
@@ -47,8 +46,8 @@ function makeColor(color, x, y, id, state) {
     this.color = color;
     this.x = x;
     this.y = y;
-		this.id = id;
-		this.state = state;
+    this.id = id;
+    this.state = state;
     this.display = function() {
         fill(color);
         noStroke();
@@ -61,18 +60,42 @@ function makeColor(color, x, y, id, state) {
                 let theColor = this.id;
                 let theState = this.state;
                 loadJSON("/emoji/" + theColor, gotData, gotError);
-                console.log(theColor)
-
+                // console.log(theColor)
                 function gotData(emojis) {
-									var fb, google, apple, samsung, windows, twitter, one;
-									var medias = [];
-                    // console.log(arguments) -- dispaly anything being passed in function
+                    console.log(emojis.length)
+										let fbImages = [];
+
                     for (let i = 0; i < emojis.length; i++) {
-                        if (theState == theState) {
-                            makeImage(emojis[i], 50, 100)
-                            // thisEmojiPalette.push(new thisEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50));
-                        }
+											var faceb = [];
+											var google = [];
+											var apple = [];
+											var twitter = [];
+											  faceb.push(emojis[0][i][0].fb);
+                        google.push(emojis[0][i][0].google);
+                        apple.push(emojis[0][i][0].apple);
+                        twitter.push(emojis[0][i][0].twitter);
+
+											for (let j = 0; j < faceb.length; j++){
+												fbImages.push(loadImage(faceb[j]))
+
+											//this is only returnign the first in the array. my sense is need a separate function to make teh palette, then use the thisEmoji function as the brush itself.
+
+											// if user selects green
+												//// make fb array visble
+												//// make google array visble
+												//// make apple array visible
+												//// make twitter array visible
+											//if user selects THIS icon, new thisEmoji, NEED ids DUH
+
+												thisEmojiPalette.push(new thisEmoji(fbImages[j], j * 25,25,25,25));
+											}
+
                     }
+
+							    // if (theState == theState) {
+                    //     makeImage(emojis[i], 50, 100)
+                    //     thisEmojiPalette.push(new thisEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50));
+                    // }
                 }
 
                 function gotError(emojis) {
@@ -83,7 +106,7 @@ function makeColor(color, x, y, id, state) {
     }
 }
 // --------- { EMOJI RANDO-SELECTION SECTION } --------//
-// start again. this is wonky.
+
 function makeImage(data, x, y) {
     let theEmotion = loadImage(data);
     this.x = x;
@@ -97,28 +120,27 @@ function makeImage(data, x, y) {
         thisEmojiPalette.push(new thisEmoji(theEmotions[i], 100, 100, 100, 100));
     }
 }
-
 function thisEmoji(photos, x, y, w, h, id) {
     this.photos = photos;
+
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
-    this.select = false;
+    this.grab = false;
     this.paint = false;
     let theBrush;
     let theMarkers = [];
     this.displayEmoji = function() {
         updatePixels();
         image(this.photos, this.x, this.y, this.w, this.h);
-        if (this.select == true && mouseIsPressed) {
+        if (this.grab == true && mouseIsPressed) {
             mouseDown = true;
             //this makes paint true
             theBrush = this.photos;
             this.paint = true;
         } else {
-
-            this.select = false;
+            this.grab = false;
             this.paint = false;
         }
     }
@@ -134,9 +156,9 @@ function thisEmoji(photos, x, y, w, h, id) {
         if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
             if (mouseIsPressed) {
                 mouseDown = true;
-                this.select = true;
+                this.grab = true;
             } else {
-                this.select = false;
+                this.grab = false;
             }
         }
     }
