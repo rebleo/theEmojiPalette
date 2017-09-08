@@ -1,9 +1,8 @@
 let paintBox = [];
+
 console.log("paint!")
 
 function pntPage(thisPhase) {
-    //
-    //
     // --- --- --- { make the color palette } --- --- ---
     var red = color(255, 0, 0, 220);
     var green = color(0, 160, 0, 220);
@@ -48,6 +47,8 @@ function makeColor(color, x, y, id, state) {
     this.color = color;
     this.x = x;
     this.y = y;
+		this.id = id;
+		this.state = state;
     this.display = function() {
         fill(color);
         noStroke();
@@ -63,16 +64,18 @@ function makeColor(color, x, y, id, state) {
                 console.log(theColor)
 
                 function gotData(emojis) {
+									var fb, google, apple, samsung, windows, twitter, one;
+									var medias = [];
                     // console.log(arguments) -- dispaly anything being passed in function
                     for (let i = 0; i < emojis.length; i++) {
                         if (theState == theState) {
-                            makeImage(emojis[i])
+                            makeImage(emojis[i], 50, 100)
                             // thisEmojiPalette.push(new thisEmoji(emojis[i], (i * 50) + 50, windowHeight - 250, 50, 50));
                         }
                     }
                 }
 
-                function gotError(data) {
+                function gotError(emojis) {
                     console.log("nope!")
                 }
             }
@@ -81,22 +84,22 @@ function makeColor(color, x, y, id, state) {
 }
 // --------- { EMOJI RANDO-SELECTION SECTION } --------//
 // start again. this is wonky.
-function makeImage(data) {
+function makeImage(data, x, y) {
     let theEmotion = loadImage(data);
-    // this.x = x;
-    // this.y = y;
+    this.x = x;
+    this.y = y;
     // this.w = w;
     // this.h = h;
     let theEmotions = [];
     theEmotions.push(theEmotion)
     // push the image data into the array to be drawn to the canvas
     for (var i = 0; i < theEmotions.length; i++) {
-        thisEmojiPalette.push(new thisEmoji(theEmotions[i], 50 + (i * 50), height - 250, 50, 50));
+        thisEmojiPalette.push(new thisEmoji(theEmotions[i], 100, 100, 100, 100));
     }
 }
 
-function thisEmoji(data, x, y, w, h, id) {
-    this.photo = data;
+function thisEmoji(photos, x, y, w, h, id) {
+    this.photos = photos;
     this.x = x;
     this.y = y;
     this.w = w;
@@ -104,14 +107,17 @@ function thisEmoji(data, x, y, w, h, id) {
     this.select = false;
     this.paint = false;
     let theBrush;
+    let theMarkers = [];
     this.displayEmoji = function() {
-        image(this.photo, this.x, this.y, this.w, this.h);
+        updatePixels();
+        image(this.photos, this.x, this.y, this.w, this.h);
         if (this.select == true && mouseIsPressed) {
             mouseDown = true;
             //this makes paint true
-            theBrush = this.photo;
+            theBrush = this.photos;
             this.paint = true;
         } else {
+
             this.select = false;
             this.paint = false;
         }

@@ -69,7 +69,7 @@ let thisColor;
 
 function draw() {
     if (theMachine == "txt") {
-        txtPage();
+        // txtPage();
     }
     /////
     ////
@@ -91,10 +91,9 @@ function draw() {
     /////
     ////
     ////
-    ////
     if (theMachine == "pxl") {
         // this is drawing to canvas
-        pxlPage();
+        // pxlPage();
         // hiding or showing dom elements shld happen when the state.
         for (let i = 0; i < txtElements.length; i++) {
             txtElements[i].hidden = true;
