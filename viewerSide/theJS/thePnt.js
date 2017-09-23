@@ -1,4 +1,7 @@
 let paintBox = [];
+let markers = [];
+let theSelection = false;
+let theBrush;
 console.log("paint!")
 
 function pntPage(thisPhase) {
@@ -34,12 +37,14 @@ function pntPage(thisPhase) {
     thePigment.state = colors[i].state;
     paintBox.push(thePigment);
   }
-  //
+  var canvasButton = createButton(' 💾');
+  canvasButton.position(350, height - 150);
+  canvasButton.mousePressed(saveClick);
   //
   // --- --- --- { make the platform palette } --- --- ---
-  for (let i = 0; i < theBigData.length; i++) {
-    image(theBigData[i], 5, (height - 300) + 30 * i, 15, 15)
-  }
+  // for (let i = 0; i < theBigData.length; i++) {
+  //   image(theBigData[i], 5, (height - 300) + 30 * i, 15, 15)
+  // }
 }
 
 function makeColor(color, x, y, id, state) {
@@ -48,8 +53,9 @@ function makeColor(color, x, y, id, state) {
   this.y = y;
   let medias = [];
   this.display = function() {
-    fill(color);
-    noStroke();
+    noFill();
+    strokeWeight(3);
+    stroke(color);
     rect(this.x, this.y, 25, 30);
   }
   this.colorSelect = function() {
@@ -61,7 +67,6 @@ function makeColor(color, x, y, id, state) {
         loadJSON("/emoji/" + theColor, gotData, gotError);
         // console.log(theColor)
         function gotData(emojis) {
-          // console.log(emojis.length)
           let fbImages = [];
           let gglImages = [];
           let appImages = [];
@@ -83,66 +88,67 @@ function makeColor(color, x, y, id, state) {
             }
           }
           medias.push(fbImages, gglImages, appImages, twtImages);
+          markers.push(new makePalette(medias, 10, height - 250, 30, 30))
         }
 
         function gotError(emojis) {
           console.log("nope!")
         }
-        updatePixels();
       }
     }
-  }
-  this.makePalette = function(emojis, x, y) {
-    var x = 0;
-    var y = height - 300;
-    for (let i = 0; i < medias.length; i++) {
-      for (let j = 0; j < medias[i].length; j++) {
-        image(medias[i][j], 25 + (30 * i), (height - 300) + 30 * j, 25, 25)
-      }
-    }
-    // updatePixels();
   }
 }
-// --------- { EMOJI DRAW-SELECTION SECTION } --------//
-function thisEmoji(photos, x, y, w, h, id) {
-  this.photos = photos;
+
+function makePalette(emoji, x, y, w, h) {
   this.x = x;
   this.y = y;
   this.w = w;
   this.h = h;
-  this.grab = false;
+  this.select = false;
   this.paint = false;
-  let theBrush;
-  let theMarkers = [];
-  this.displayEmoji = function() {
-    updatePixels();
-    image(this.photos, this.x, this.y, this.w, this.h);
-    if (this.grab == true && mouseIsPressed) {
-      mouseDown = true;
-      //this makes paint true
-      theBrush = this.photos;
-      this.paint = true;
-    } else {
-      this.grab = false;
-      this.paint = false;
+  let theX;
+  let theY;
+  let theEmoji;
+  this.display = function() {
+    for (let i = 0; i < emoji.length; i++) {
+      for (let j = 0; j < emoji[i].length; j++) {
+        theEmoji = emoji[i][j]
+        theX = this.x + i * 30;
+        theY = this.y + j * 30;
+        image(theEmoji, theX, theY, this.w, this.h);
+        if (this.select == true && mouseIsPressed) {
+          mouseDown = true;
+          //this makes paint true
+          theBrush = theEmoji;
+          this.paint = true;
+          console.log(theBrush)
+        } else {
+          this.select = false;
+          this.paint = false;
+        }
+      }
     }
   }
-  this.paintEmoji = function() {
-    if (mouseX > -25 && mouseX < width + 25 && mouseY > -25 && mouseY <= height + 25) {
-      if (theBrush && mouseIsPressed) {
+  this.makeMarks = function() {
+    if (mouseX > 0 && mouseX < width && mouseY > 25 && mouseY <= 500) {
+      if (this.select == true && mouseIsPressed) {
         mouseDown = true;
         image(theBrush, pmouseX, pmouseY, this.w, this.h);
       }
     }
   }
-  this.selectEmoji = function() {
-    if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
+  this.marker = function() {
+    if (mouseX > theX && mouseX < theX + this.w && mouseY > theY && mouseY < theY + this.h) {
       if (mouseIsPressed) {
         mouseDown = true;
-        this.grab = true;
+        this.select = true;
       } else {
-        this.grab = false;
+        this.select = false;
       }
     }
   }
+}
+
+function saveClick() {
+  saveCanvas(theCanvas, 'newPix', 'jpg')
 }

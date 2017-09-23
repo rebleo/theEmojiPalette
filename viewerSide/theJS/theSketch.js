@@ -44,7 +44,6 @@ function setup() {
     aButton.id = theButtons[i].phs;
     thePrsnPlcThngCntrls.push(aButton)
   }
-  text("< title page >", 150, 180)
 }
 //
 //
@@ -87,7 +86,12 @@ function draw() {
       // paintBox[i].colorSelect();
       var aColor = paintBox[i].colorSelect();
       paintBox[i].colorSelect();
-      paintBox[i].makePalette();
+      // paintBox[i].makePalette();
+    }
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].display();
+      markers[i].marker();
+      markers[i].makeMarks();
     }
     //hide the dom elements from the other pages
     for (let i = 0; i < txtElements.length; i++) {

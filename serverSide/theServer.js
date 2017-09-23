@@ -60,7 +60,8 @@ function makeEmoji() {
         var theEmoji1 = new RegExp(theRandom1)
         var theEmoji2 = new RegExp(theRandom2)
         if (theNames[j].match(theEmoji0)) {
-          thisMessage0[j] = theSelectedColor[j].images;
+          var emo1 = theSelectedColor[j].images;
+          thisMessage0.push(emo1);
         }
         if (theNames[j].match(theEmoji1)) {
           thisMessage1[j] = theSelectedColor[j].images;
