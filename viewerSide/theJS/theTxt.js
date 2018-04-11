@@ -1,53 +1,44 @@
 console.log("txt!")
 var aPlatformPalette = [];
-// // --------- { theTxt Page - Txt == Pixel} --------//
+var thePageH = [];
+var theRule;
+// --------- { theTxt Page - Txt == Pixel} --------//
 function txtPage(thisPhase) {
-    background(255, 0, 0);
-    let theSearch;
-    theSearch = createSelect('search 💬');
-    theSearch.position(50, 400);
-    theSearch.option('😶 | persons');
-    theSearch.option('🌲 | place');
-    theSearch.option('💬 | thing');
-    theSearch.addClass("txtStuff")
-    //
-    //
-    // line the page for fun
-    // immediate mode, means just like on draw runs. not sving any info in glbl variables. local stuff.
-    push();
-    stroke(255, 192, 200, 100);
-    strokeWeight(3);
-    line(50, 0, 50, windowHeight);
-    pop();
-    push();
-    stroke(0, 0, 200, 100);
-    strokeWeight(2);
-    for (var i = 0; i < windowHeight; i++) {
-        line(0, 20 * i, windowWidth, 20 * i);
-    }
-    pop();
+  var theSearch;
+  theSearch = createSelect('search 💬');
+  theSearch.position(50, 400);
+  theSearch.option('😶 | persons');
+  theSearch.option('🌲 | place');
+  theSearch.option('💬 | thing');
+  theSearch.addClass("txtStuff");
+  //
+  // line the page for fun
+  // immediate mode, means just like on draw runs. not sving any info in glbl variables. local stuff.    push();
+  stroke(255, 192, 200, 50, 100);
+  strokeWeight(3);
+  theRule = line(50, 0, 50, windowHeight);
+  pop();
+  push();
+  stroke(0, 0, 200, 50, 200);
+  strokeWeight(2);
+  for (var i = 0; i < windowHeight; i++) {
+    var theLine = line(0, 20 * i, windowWidth, 20 * i);
+    // thePageH.push(theLine[i]);
+  }
+  pop();
+  // thisPage.push();
+  // thisPage.stroke(255, 192, 200, 100);
+  // thisPage.strokeWeight(3);
+  // let theMargin = thisPage.line(50, 0, 50, windowHeight);
+  // thisPage.pop();
+  // thisPage.push();
+  // thisPage.stroke(0, 0, 200, 100);
+  // thisPage.strokeWeight(2);
+  // for (var i = 0; i < windowHeight; i++) {
+  //   thisPage.line(0, 20 * i, windowWidth, 20 * i);
+  // }
+  // thisPage.pop();
 }
-//     thisPage.setup = function() {
-//
-//         var theFaces = theSearch.option('😶 | emojis');
-//         // var theForests = theSearch.option('🌲 | nature');
-//         // var theObjects = theSearch.option('🤖 | things');
-//         // var theFlags = theSearch.option('🏳️ | flags');
-//         theSearch.changed(makeSelection)
-//         theSearch.addClass('txtPage')
-//         thisPage.push();
-//         thisPage.stroke(255, 192, 200, 100);
-//         thisPage.strokeWeight(3);
-//         let theMargin = thisPage.line(50, 0, 50, windowHeight);
-//         thisPage.pop();
-//         thisPage.push();
-//         thisPage.stroke(0, 0, 200, 100);
-//         thisPage.strokeWeight(2);
-//         for (var i = 0; i < windowHeight; i++) {
-//             thisPage.line(0, 20 * i, windowWidth, 20 * i);
-//         }
-//         thisPage.pop();
-//     }
 //     makeSelection = function() {
 //         var theSelected = theSearch.value();
 //         // console.log(theSelected)

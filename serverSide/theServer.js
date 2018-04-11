@@ -31,7 +31,14 @@ function makeEmoji() {
   //
   // --- --- --- { get PNT data } --- --- ---
   theApp.get('/emoji/:color/', theMedium);
+  // --- --- --- { get TXT data } --- --- ---
+  theApp.get('/name/', theTxt);
 
+  function theTxt(request, response) {
+    console.log(request);
+  }
+  // --- --- --- { this TXT data } --- --- ---
+  // --- --- --- { this PNT data } --- --- ---
   function theMedium(request, response) {
     var theMessage = [];
     var thisMessage0 = [];

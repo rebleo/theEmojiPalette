@@ -46,7 +46,7 @@ function pntPage(thisPhase) {
   //   image(theBigData[i], 5, (height - 300) + 30 * i, 15, 15)
   // }
 }
-
+// this is the end of pntPage (init)
 function makeColor(color, x, y, id, state) {
   this.color = color;
   this.x = x;
@@ -88,9 +88,9 @@ function makeColor(color, x, y, id, state) {
             }
           }
           medias.push(fbImages, gglImages, appImages, twtImages);
-          markers.push(new makePalette(medias, 10, height - 250, 30, 30))
+          markers.push(new makePalette(medias, 10, height - 250, 30, 30));
         }
-
+        // select marker, remove(otherMarkers) from canvas
         function gotError(emojis) {
           console.log("nope!")
         }

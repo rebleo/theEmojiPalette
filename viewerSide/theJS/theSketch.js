@@ -2,6 +2,7 @@
 //
 //
 let theCanvas, theContxt, theMachine;
+let theBackground;
 let thePrsnPlcThng = [];
 let thePrsnButton, thePlaceButton, theThingButton;
 let thePrsnPlcThngCntrls = [];
@@ -25,6 +26,7 @@ function mouseReleased() {
 
 function setup() {
   theCanvas = createCanvas(windowWidth, windowHeight);
+  theBackground = background(150);
   txtElements = document.getElementsByClassName('txtStuff');
   //
   //
@@ -47,7 +49,7 @@ function setup() {
 }
 //
 //
-// this constructo r thing is for images that are buttons.
+// this constructor thing is for images that are buttons.
 // this is for images that are preloaded
 //
 function theCntrl(photo, x, y, w, h, id) {
@@ -63,22 +65,20 @@ function theCntrl(photo, x, y, w, h, id) {
     if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
       if (mouseIsPressed) {
         theMachine = this.id;
-        // console.log(theMachine)
+        console.log(theMachine)
       }
     }
   }
 }
 let thisColor;
 
-function draw() {
+function draw(theContxt) {
   if (theMachine == "txt") {
-    // txtPage();
+    theBackground = background(255);
+    txtPage();
   }
-  /////
-  ////
-  ////
-  ////
   if (theMachine == "pnt") {
+    theBackground = background(255);
     pntPage();
     //  display canvas elemnts from pnt.js
     for (var i = 0; i < paintBox.length; i++) {
@@ -98,12 +98,10 @@ function draw() {
       txtElements[i].hidden = true;
     }
   }
-  /////
-  ////
-  ////
   if (theMachine == "pxl") {
     // this is drawing to canvas
-    // pxlPage();
+    theBackground = background(255);
+    pxlPage();
     // hiding or showing dom elements shld happen when the state.
     for (let i = 0; i < txtElements.length; i++) {
       txtElements[i].hidden = true;

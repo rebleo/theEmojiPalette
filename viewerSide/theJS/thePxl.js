@@ -1,20 +1,9 @@
   console.log("pxl!")
   // --------- { thePixel - Color == Emoji  } --------//
   function pxlPage(thisPhase) {
-      background(0, 0, 255);
-      // line the page for fun
-      push();
-      stroke(255, 192, 200, 100);
-      strokeWeight(3);
-      line(50, 0, 50, windowHeight); // the margin
-      pop();
-      push();
-      stroke(0, 0, 200, 100);
-      strokeWeight(2);
-      for (var i = 0; i < windowHeight; i++) {
-          line(0, 20 * i, windowWidth, 20 * i);
-      }
-      pop();
+  
+    // line the page for fun
+    rect(100, 100, 100, 100);
   }
   // var platPalette = [];
   // function pxlPage(thisPage) {
