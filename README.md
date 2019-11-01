@@ -1,6 +1,13 @@
 ## the Em😶ji Palette
 This is a unicode to pixel translation project. Currently: one.json w/ [emoji one](http://emojione.com/) images and corresponding unicode, name and emoji.
 
+![chx](/viewerSide/theData/chx.png)
+![graduate](/viewerSide/theData/grd.png)
+![mountain](/viewerSide/theData/mt.jpg)
+
+##### [reb](/viewerSide/theData/slf.png)
+[some contxt](https://itp.nyu.edu/thesis2017/project/rebecca-(marks)-leopold)
+
 ### to Do ‼️
 
 1. Public Palette:
@@ -14,10 +21,3 @@ This is a unicode to pixel translation project. Currently: one.json w/ [emoji on
 3. the Emoji Primitives:
 * sketch out system diagram⋅⋅
 * make assets⋅⋅
-
-##### xo r ![reb](/viewerSide/theData/slf.png)
-[some contxt](https://itp.nyu.edu/thesis2017/project/rebecca-(marks)-leopold)
-
-![chx](/viewerSide/theData/chx.png)
-![graduate](/viewerSide/theData/grd.png)
-![mountain](/viewerSide/theData/mt.jpg)
