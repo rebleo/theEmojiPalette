@@ -15,7 +15,9 @@ This is a unicode to pixel translation project. Currently: one.json w/ [emoji on
 * sketch out system diagram⋅⋅
 * make assets⋅⋅
 
-##### xo r ![reb](/viewerSide/theData/slf.jpg)
-
-![mountain](/viewerSide/theData/mt.jpg)
+##### xo r ![reb](/viewerSide/theData/slf.png)
 [some contxt](https://itp.nyu.edu/thesis2017/project/rebecca-(marks)-leopold)
+
+![chx](/viewerSide/theData/chx.png)
+![graduate](/viewerSide/theData/grd.png)
+![mountain](/viewerSide/theData/mt.jpg)
